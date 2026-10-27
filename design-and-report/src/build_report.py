@@ -502,15 +502,17 @@ REPORT_PANE = ('<div class="pane" id="report" data-tab="report" hidden>\n'
                + '\n</div>\n')
 
 # ---------- rakit halaman ----------
-nav_links_design = SRC[SRC.index('<div class="links" data-tab="design">'):]
-nav_links_design = nav_links_design[:nav_links_design.index('</div>') + 6]
+nav_src = SRC[SRC.index('<nav aria-label="Project navigation">'):SRC.index('</nav>') + 6]
+btn_design = re.search(r'<button[^>]*data-t="design"[^>]*>.*?</button>', nav_src, re.S).group(0)
+btn_report = re.search(r'<button[^>]*data-t="report"[^>]*>.*?</button>', nav_src, re.S).group(0)
+links_design = re.search(r'<div class="links" data-tab="design">.*?</div>', nav_src, re.S).group(0)
 new_report_links = ('<div class="links" data-tab="report" hidden>'
                     + "".join(f'<a href="#rp{i}">{t}</a>' for i, t in enumerate(
                         ["Data", "Business Questions", "Dataset", "Tools", "Alur Kerja", "Project Output", "Kesimpulan"], 1))
                     + '</div>')
-nav_old = SRC[SRC.index('<nav aria-label="Project navigation">'):SRC.index('</nav>') + 6]
-nav_new = nav_old.replace(nav_links_design, nav_links_design)  # design links dipertahankan (salin)
-nav_new = nav_old[:nav_old.index('<div class="links" data-tab="report"')] + new_report_links + '</nav>'
+# urutan baku: kedua tombol tab berdampingan dulu, baru grup link (lihat skill portfolio-project-report-page)
+nav_new = ('<nav aria-label="Project navigation">' + btn_design + btn_report
+           + links_design + new_report_links + '</nav>')
 
 design_start = SRC.index('<header class="banner">')
 design_end = SRC.index('<div class="pane" id="report"')
