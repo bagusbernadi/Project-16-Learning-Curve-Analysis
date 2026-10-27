@@ -2,64 +2,76 @@
 
 # Project 16: Learning Curve Analysis
 
-**Status: Design (rancangan).** Halaman rancangan ada di [`index.html`](index.html). Analisis, dashboard, dan angka hasil belum dikerjakan, sehingga bagian Analysis, Recommendation, dan Impact di bawah masih kosong.
-
-**Tujuan:** membangun analisis kurva belajar dari data output harian operator baru yang dianonimkan, untuk mengukur berapa hari operator mencapai target output dibanding standar 30 hari dan faktor apa yang membedakan kecepatannya.
-
 | | |
 |---|---|
-| Kategori | Manufaktur (data anonim) |
-| Tingkat | Mudah sampai sedang |
-| Data | Data kerja yang dianonimkan (nama operator, stasiun, dan produk diganti kode; angka diskala) |
-| Tools | DuckDB + SQL, Python (pandas, NumPy, SciPy), Excel, Streamlit + Plotly |
+| Kategori | Manufaktur PLC Splitter, learning curve |
+| Tingkat | Menengah |
+| Data | **Simulasi** (tidak ada data kerja; lihat `project/docs/simulation_spec.md`) |
+| Tools | Python (pandas, NumPy, SciPy), DuckDB + SQL, Excel (cek silang), Streamlit + Plotly, Matplotlib |
+
+Status: **Selesai di branch `project-16-build`** (belum di-merge ke `main`). Dashboard belum di-deploy.
+
+Pertanyaan utama: seberapa cepat operator baru mencapai target output harian dibanding standar 30 hari, dan apa yang
+membedakan operator yang cepat dan lambat?
 
 ## 1. Problem
-
-**Pertanyaan utama:** Seberapa cepat operator baru mencapai target output harian dibanding standar 30 hari, dan apa yang membedakan operator yang cepat dan lambat?
-
-Rancangan memecahnya menjadi 13 pertanyaan (8 Utama, 4 Pendukung, 1 Tambahan) dalam tema kecepatan, bentuk kurva, perbedaan antar operator dan stasiun, kualitas, dampak, dan validitas. Daftar lengkap ada di bagian 2 halaman rancangan.
+Standar 30 hari untuk operator baru belum pernah diuji dengan data. Jika operator biasanya mencapai target lebih cepat,
+standar itu terlalu panjang. Jika lebih lambat, operator perlu bantuan lebih awal.
 
 ## 2. Data
-
-- Data kerja output harian operator baru yang dianonimkan: kode operator OP-01 sampai OP-10, stasiun ST-A sampai ST-C, angka output dan target dikalikan faktor rahasia, tanggal diubah menjadi hari ke-n. Data asli dan tabel pemetaan kode tidak masuk repositori.
-- Ukuran (perkiraan): 10 operator, 3 stasiun, ±60 hari kerja per operator, ±600 baris.
-- Rencana tabel: `new_operator`, `daily_output`, `station_target`, `experienced_baseline`.
+Data simulasi 10 operator baru dan 3 stasiun (ST-A, ST-B, ST-C), dibuat dengan seed tetap. Data dianonimkan
+(kode OP-xx, ST-x; tanggal menjadi `work_day`). Cleaning menyisakan hari valid dan mencatat alasan tiap hari yang dilewati.
+Detail: `project/docs/cleaning_decisions.md`, `project/docs/data_dictionary.md`.
 
 ## 3. Analysis
-
-Belum dikerjakan. Rencana langkah (12 langkah, tahap A sampai D) ada di bagian 6 halaman rancangan: time-to-target dengan SQL window function, curve fitting (power law vs eksponensial), uji Wilcoxon terhadap 30 hari, dan perbandingan antar stasiun.
-
-Hipotesis yang akan diuji (belum terbukti):
-1. Median time-to-target jauh di bawah 30 hari (catatan awal: 10–20 hari).
-2. Kurva cepat di awal lalu melambat.
-3. Stasiun dengan langkah kerja lebih banyak butuh waktu lebih lama.
-4. Output minggu pertama berkorelasi dengan time-to-target.
-5. NG rate turun seiring output naik.
+- Time-to-target: hari valid pertama dari tiga hari berturut-turut dengan output ≥ target.
+- Bentuk kurva: power law dipilih dengan leave-one-operator-out (RMSE 0,0832; eksponensial 0,0878; linear per segmen 0,0920).
+- Uji: Wilcoxon satu sampel terhadap 30 hari, Kruskal-Wallis antar stasiun, Spearman, Mann-Whitney.
+- Sensitivitas definisi (12 kombinasi) dan uji pemulihan parameter yang ditanam.
+- Cek silang: SQL vs pandas 10 dari 10 operator, SQL vs Excel (dihitung ulang LibreOffice) 3 dari 3.
 
 ## 4. Recommendation
-
-Belum dikerjakan. Output yang direncanakan: usulan standar dan program pendampingan berdasarkan data.
+- Pantau operator baru pada hari ke-10 dan ke-15. Pada hari ke-15, 90% operator sudah mencapai target (CI 60% sampai 98%).
+- Tinjau standar 30 hari, tetapi uji dulu dengan data kerja nyata sebelum diubah.
+- Perhatikan NG rate pada minggu pertama; NG turun dari sekitar 7,9% (minggu 1 sampai 2) ke 2,3% (dua minggu terakhir).
 
 ## 5. Impact
+Median time-to-target 11 hari (CI 7 sampai 15). Dengan asumsi 20 operator baru per tahun, selisih 30 − 11 hari setara
+380 hari onboarding per tahun (**estimated**; volume operator per tahun adalah asumsi, bukan data).
 
-Belum dikerjakan. Rumus yang akan dipakai (semua hasil diberi label `estimated`):
+## Hipotesis
+| ID | Verdict |
+|---|---|
+| H1 | Terbukti |
+| H2 | Terbukti |
+| H3 | Belum bisa disimpulkan (arah sesuai, tidak signifikan) |
+| H4 | Belum bisa disimpulkan (rho −0,35, p = 0,323) |
+| H5 | Terbukti |
 
-```
-Hari onboarding dihemat per tahun = (30 − median time-to-target) × jumlah operator baru per tahun
-```
+## Batasan
+- **Data adalah simulasi.** Angka tidak boleh dikutip sebagai fakta lini produksi. Lisensi tidak berlaku.
+- Sampel kecil: 10 operator, 3 stasiun dengan 3 sampai 4 operator per stasiun. Perbedaan batch dan mentor tidak bisa dibedakan dari kebetulan.
+- Uji pemulihan menunjukkan bias F1 positif (+0,07) akibat seleksi hari valid. Tidak diperbaiki setelah melihat hasil.
+- Tidak ada operator censored pada data ini; penanganan censored belum teruji pada data nyata.
+- Dashboard Streamlit diuji dengan AppTest, **belum di-deploy** (item terbuka).
+- Notebook `analysis.ipynb` tidak dibuat. Output opsional (template Excel, slide) tidak dibuat.
+- Branch `project-16-build` perlu dihapus setelah review, jika sudah di-merge atau tidak dipakai.
 
-## Batasan yang sudah diketahui
-
-- 10 operator adalah sampel kecil.
-- Operator yang keluar sebelum mencapai target tetap dicatat.
-- Belum ada data defect operator lama sebagai pembanding.
-- Pola belum tentu penyebab.
+## Menjalankan
+Dari folder `project/`, jalankan skrip secara berurutan sesuai nomor (`code/*/python/00_...` sampai `15_...`),
+lalu dari root repo: `python3 design-and-report/src/build_report.py`. Paket: `project/requirements.txt`.
 
 ## Struktur repository
-
 ```
-index.html   Halaman rancangan project (bisa dibuka di browser atau lewat GitHub Pages)
-README.md    Dokumen ini
+README.md
+index.html                 pengalihan ke design-and-report/
+.gitignore
+design-and-report/         index.html (tab Design + Report), src/
+project/
+  code/                    program (common.py, 1-data-preparation, 2-analysis, 3-presentation)
+  results/                 hasil analisis per tahap
+  data/                    raw/ dan clean/ (tidak di-commit), anon/, README.md
+  docs/                    definitions.md, data_dictionary.md, cleaning_decisions.md, simulation_spec.md
+  outputs/                 crosscheck.xlsx, infografik (PNG dan PDF)
+  requirements.txt
 ```
-
-Folder `docs/`, `data/anon/`, `scripts/`, `sql/`, `notebooks/`, `dashboard/`, dan `outputs/` ditambahkan saat pengerjaan dimulai. Folder `data/private/` tidak pernah di-commit.

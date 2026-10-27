@@ -1,0 +1,4 @@
+station_code,station_alias,target_per_day,valid_from
+ST-A,Assembly,120,1
+ST-B,Bonding,100,1
+ST-C,Finishing,80,1

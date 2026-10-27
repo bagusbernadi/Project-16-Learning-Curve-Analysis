@@ -1,0 +1,4 @@
+metrik,estimasi,ci_bawah,ci_atas,jumlah_operator
+b_power_median,0.803213,0.696199,0.902273,10
+P_power_median,1.114702,1.078203,1.150799,10
+plateau_day_median,25.0,18.0,50.0,10

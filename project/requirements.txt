@@ -1,0 +1,8 @@
+pandas>=2.0
+numpy
+scipy
+duckdb>=1.0
+openpyxl
+matplotlib
+streamlit>=1.40
+plotly>=5.20

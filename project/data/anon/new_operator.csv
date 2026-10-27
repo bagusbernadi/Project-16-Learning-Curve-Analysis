@@ -1,0 +1,11 @@
+operator_code,station_code,batch_code,mentor_code,start_week
+OP-01,ST-A,B1,M1,1
+OP-02,ST-A,B1,M1,1
+OP-03,ST-A,B2,M2,1
+OP-04,ST-A,B2,M2,1
+OP-05,ST-B,B1,M1,1
+OP-06,ST-B,B2,M2,1
+OP-07,ST-B,B2,M1,1
+OP-08,ST-C,B1,M2,1
+OP-09,ST-C,B2,M2,1
+OP-10,ST-C,B1,M1,1

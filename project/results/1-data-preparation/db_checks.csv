@@ -1,0 +1,7 @@
+pengecekan,pelanggaran,hasil
+ok_qty tidak negatif,0,lulus
+ng_qty tidak negatif,0,lulus
+setiap operator ada di new_operator,0,lulus
+setiap stasiun ada di station_target,0,lulus
+work_day unik per operator,0,lulus
+alasan terdaftar,0,lulus
