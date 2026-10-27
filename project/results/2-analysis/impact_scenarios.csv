@@ -1,0 +1,10 @@
+skenario,median_ttt,standar_hari,operator_baru_per_tahun,hari_onboarding_dihemat_per_tahun_estimated,output_setara_unit_estimated,label
+median data (dasar),11.0,30,10,190.0,19000.0,estimated; volume operator per tahun = asumsi
+median data (dasar),11.0,30,20,380.0,38000.0,estimated; volume operator per tahun = asumsi
+median data (dasar),11.0,30,40,760.0,76000.0,estimated; volume operator per tahun = asumsi
+batas bawah CI median,7.0,30,10,230.0,23000.0,estimated; volume operator per tahun = asumsi
+batas bawah CI median,7.0,30,20,460.0,46000.0,estimated; volume operator per tahun = asumsi
+batas bawah CI median,7.0,30,40,920.0,92000.0,estimated; volume operator per tahun = asumsi
+batas atas CI median,15.0,30,10,150.0,15000.0,estimated; volume operator per tahun = asumsi
+batas atas CI median,15.0,30,20,300.0,30000.0,estimated; volume operator per tahun = asumsi
+batas atas CI median,15.0,30,40,600.0,60000.0,estimated; volume operator per tahun = asumsi

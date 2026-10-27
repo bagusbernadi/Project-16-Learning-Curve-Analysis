@@ -1,0 +1,6 @@
+id,hipotesis_rancangan,bukti,verdict,catatan_keputusan
+H1,Median time-to-target jauh di bawah standar 30 hari (catatan awal: 10-20 hari).,median 11 hari; Wilcoxon p = 0.000977,Terbukti,"kriteria: median di bawah 20 dan p < 0,05"
+H2,Kurva belajar mengikuti pola cepat di awal lalu melambat (power law atau eksponensial).,power law terpilih LOOCV; 100% operator power law lebih baik dari eksponensial (in-sample); b median dibaca di curve_ci.csv,Terbukti,selisih LOOCV kecil (lihat curve_model_compare.csv)
+H3,Stasiun dengan langkah kerja lebih banyak membutuhkan waktu lebih lama untuk mencapai target.,"median per stasiun A 13, B 13, C 7 hari; tren Spearman 0.87",Belum bisa disimpulkan,"arah sesuai (ST-C tercepat), tetapi uji Kruskal-Wallis tidak signifikan dan n per stasiun 3 sampai 4"
+H4,"Output minggu pertama berkorelasi dengan time-to-target, sehingga operator yang butuh bantuan bisa dikenali lebih awal.","Spearman rho = -0.35, p = 0.323 (n = 10)",Belum bisa disimpulkan,n = 10; kekuatan korelasi tidak stabil
+H5,NG rate operator baru turun seiring output naik.,median Spearman per operator = -0.55 (CI -0.66 sampai -0.51); 10 dari 10 operator negatif,Terbukti,arah konsisten; NG rate juga turun seiring masa kerja (waktu dan output bergerak bersama)

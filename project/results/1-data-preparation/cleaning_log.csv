@@ -1,0 +1,82 @@
+operator_code,work_day,station_code,alasan
+OP-01,1,ST-A,jam tidak penuh
+OP-01,31,ST-A,jam tidak penuh
+OP-01,38,ST-A,output 0
+OP-01,40,ST-A,jam tidak penuh
+OP-01,45,ST-A,jam tidak penuh
+OP-01,49,ST-A,tidak hadir
+OP-01,55,ST-A,jam tidak penuh
+OP-02,8,ST-A,tidak hadir
+OP-02,13,ST-A,jam tidak penuh
+OP-02,48,ST-A,jam tidak penuh
+OP-02,53,ST-A,jam tidak penuh
+OP-02,56,ST-A,jam tidak penuh
+OP-03,25,ST-A,tidak hadir
+OP-03,26,ST-A,tidak hadir
+OP-03,33,ST-A,jam tidak penuh
+OP-04,21,ST-A,tidak hadir
+OP-04,52,ST-A,tidak hadir
+OP-04,55,ST-A,jam tidak penuh
+OP-04,57,ST-A,tidak hadir
+OP-05,8,ST-B,tidak hadir
+OP-05,14,ST-B,jam tidak penuh
+OP-05,19,ST-B,jam tidak penuh
+OP-05,30,ST-B,jam tidak penuh
+OP-05,34,ST-B,jam tidak penuh
+OP-05,39,ST-B,output 0
+OP-05,43,ST-B,tidak hadir
+OP-05,48,ST-B,jam tidak penuh
+OP-05,51,ST-B,tidak hadir
+OP-05,57,ST-B,jam tidak penuh
+OP-06,5,ST-B,jam tidak penuh
+OP-06,25,ST-C,pindah stasiun
+OP-06,26,ST-C,pindah stasiun
+OP-06,27,ST-C,pindah stasiun
+OP-06,28,ST-C,pindah stasiun
+OP-06,29,ST-C,pindah stasiun
+OP-06,30,ST-C,pindah stasiun
+OP-06,31,ST-C,pindah stasiun
+OP-06,32,ST-C,pindah stasiun
+OP-06,33,ST-C,pindah stasiun
+OP-06,34,ST-C,pindah stasiun
+OP-06,35,ST-C,pindah stasiun
+OP-06,36,ST-C,pindah stasiun
+OP-06,37,ST-C,pindah stasiun
+OP-06,38,ST-C,pindah stasiun
+OP-06,39,ST-C,pindah stasiun
+OP-06,40,ST-C,pindah stasiun
+OP-06,41,ST-C,pindah stasiun
+OP-06,42,ST-C,pindah stasiun
+OP-06,43,ST-C,pindah stasiun
+OP-06,44,ST-C,pindah stasiun
+OP-06,45,ST-C,pindah stasiun
+OP-06,46,ST-C,pindah stasiun
+OP-06,47,ST-C,pindah stasiun
+OP-06,48,ST-C,pindah stasiun
+OP-06,49,ST-C,pindah stasiun
+OP-06,50,ST-C,pindah stasiun
+OP-06,51,ST-C,pindah stasiun
+OP-06,52,ST-C,pindah stasiun
+OP-06,53,ST-C,pindah stasiun
+OP-06,54,ST-C,pindah stasiun
+OP-06,55,ST-C,pindah stasiun
+OP-06,56,ST-C,pindah stasiun
+OP-06,57,ST-C,pindah stasiun
+OP-06,58,ST-C,pindah stasiun
+OP-06,59,ST-C,pindah stasiun
+OP-06,60,ST-C,pindah stasiun
+OP-07,36,ST-B,jam tidak penuh
+OP-07,48,ST-B,tidak hadir
+OP-07,49,ST-B,jam tidak penuh
+OP-08,11,ST-C,tidak hadir
+OP-08,15,ST-C,jam tidak penuh
+OP-08,28,ST-C,tidak hadir
+OP-08,39,ST-C,jam tidak penuh
+OP-08,46,ST-C,tidak hadir
+OP-09,2,ST-C,tidak hadir
+OP-09,12,ST-C,output 0
+OP-09,17,ST-C,tidak hadir
+OP-09,24,ST-C,output 0
+OP-10,1,ST-C,tidak hadir
+OP-10,2,ST-C,jam tidak penuh
+OP-10,4,ST-C,tidak hadir

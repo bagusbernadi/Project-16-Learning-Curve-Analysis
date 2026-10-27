@@ -1,0 +1,30 @@
+pertanyaan,metrik,nilai,ci_bawah,ci_atas,p_value,n,catatan
+Q1,median time-to-target (hari kerja valid),11.0,7.0,15.0,,10,
+Q1,minimum time-to-target,6.0,,,,10,
+Q1,maksimum time-to-target,23.0,,,,10,
+Q1,IQR (Q3-Q1),7.0,,,,10,
+Q1,operator belum mencapai target (censored),0.0,,,,10,semua operator mencapai target sebelum berhenti atau akhir periode
+Q2,Wilcoxon satu sampel vs 30 hari (median < 30),0.0,,,0.000976562,10,uji satu sisi; statistik W
+Q3,persen operator mencapai target pada hari 10,0.4,0.16818,0.687326,,10,4 dari 10 operator
+Q3,persen operator mencapai target pada hari 15,0.9,0.59585,0.982124,,10,9 dari 10 operator
+Q3,persen operator mencapai target pada hari 20,0.9,0.59585,0.982124,,10,9 dari 10 operator
+Q6,Kruskal-Wallis time-to-target antar stasiun,3.083333,,,0.214024,10,"n per stasiun 4, 3, 3: daya uji sangat rendah"
+Q6,median time-to-target ST-A,13.0,6.0,23.0,,4,
+Q6,median time-to-target ST-B,13.0,11.0,15.0,,3,
+Q6,median time-to-target ST-C,7.0,7.0,9.0,,3,
+Q7,Spearman rho: output minggu pertama vs time-to-target,-0.348639,,,0.323487,10,"n kecil; rho negatif berarti output minggu pertama tinggi, target lebih cepat"
+Q8,median time-to-target batch_code B1 (n=5),7.0,,,,5,
+Q8,median time-to-target batch_code B2 (n=5),15.0,,,,5,
+Q8,Mann-Whitney batch_code B1 vs B2,3.5,,,0.0731398,10,sampel sangat kecil; tidak bisa dibedakan dari kebetulan
+Q8,median time-to-target mentor_code M1 (n=5),11.0,,,,5,
+Q8,median time-to-target mentor_code M2 (n=5),11.0,,,,5,
+Q8,Mann-Whitney mentor_code M1 vs M2,9.5,,,0.598161,10,sampel sangat kecil; tidak bisa dibedakan dari kebetulan
+Q9,Spearman rho: minggu masa kerja vs NG rate (pooled operator-minggu),-0.989484,,,,102,p tidak dilaporkan: baris operator-minggu tidak independen; dibaca sebagai arah saja
+Q9,NG rate rata-rata minggu 1-2,0.078916,,,,20,
+Q9,NG rate rata-rata dua minggu terakhir,0.022938,,,,11,
+Q10,Spearman rho: time-to-target vs NG rate rata-rata,0.128446,,,0.723615,10,NG rate dihitung dari hari valid; OP-06 dan OP-09 berhenti lebih awal sehingga NG rate-nya lebih tinggi (perancu)
+H5,median Spearman per operator: persen target vs NG rate harian,-0.549264,-0.660233,-0.506844,,10,10 dari 10 operator bernilai negatif
+H3,Spearman: jumlah langkah vs median time-to-target per stasiun,0.866025,,,,3,hanya 3 stasiun; tidak bisa diuji signifikan
+Q5,"plateau fit power law (median operator), relatif terhadap target",1.114702,1.078203,1.150799,,10,"1,00 = 100% target"
+Q5,"hari kurva mulai mendatar (95% plateau), median operator",25.0,18.0,50.0,,10,0 operator belum mendatar dalam 500 hari
+Q5,"median output operator berpengalaman, relatif terhadap target",1.05,,,,108,"median dari semua minggu dan stasiun, operator berpengalaman sebagai pembanding"

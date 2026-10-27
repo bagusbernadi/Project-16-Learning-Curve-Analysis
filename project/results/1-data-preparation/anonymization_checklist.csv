@@ -1,0 +1,9 @@
+pemeriksaan,hasil,detail
+nama operator asli tidak ada di data anon,lulus,"22 nama diperiksa, 0 cocok"
+nama stasiun asli tidak ada di data anon,lulus,3 nama stasiun asli diperiksa
+nama produk tidak ada di data anon,lulus,nama produk asli diperiksa
+keterangan bebas dihapus,lulus,kolom keterangan tidak ikut
+tanggal kalender tidak ada di data anon,lulus,tanggal diganti work_day
+jumlah operator baru = 10,lulus,10
+tabel pemetaan tidak di-commit (gitignore),lulus,data/mapping_key.csv
+rasio target dan output dikalikan faktor yang sama,lulus,faktor 0.8; 3 target dikonversi

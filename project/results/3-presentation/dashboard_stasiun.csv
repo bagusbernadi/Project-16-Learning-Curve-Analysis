@@ -1,0 +1,4 @@
+station_code,operator,median_ttt,min_ttt,max_ttt,tertinggal,median_b
+ST-A,4,13.0,6.0,23.0,2,0.724752
+ST-B,3,13.0,11.0,15.0,1,1.087533
+ST-C,3,7.0,7.0,9.0,0,0.746102

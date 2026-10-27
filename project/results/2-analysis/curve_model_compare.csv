@@ -1,0 +1,4 @@
+model,n_parameter,loocv_rmse_mean,loocv_rmse_median,operator_gagal,dipilih
+power_law,3,0.083175,0.083659,0,1
+eksponensial,3,0.08784,0.088162,0,0
+linear_per_segmen,4,0.091987,0.094468,0,0
