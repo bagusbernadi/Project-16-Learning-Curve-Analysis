@@ -205,8 +205,12 @@ def qchip(n, title):
     return f'<a class="qc{" w" if n in WARN else ""}" href="#sec2{n}" title="{esc(title)}">Q{n}</a>'
 
 
+GROUP_ANCHORS = {1, 4, 6, 9, 11, 12}      # id sec2N sudah dipasang di awal kelompok
+
+
 def qcard(n, title, prio):
-    return qa(f"Q{n}", title, prio, ANS[n], status="Terjawab" if n not in WARN else "Dengan catatan", warn=n in WARN)
+    anchor = "" if n in GROUP_ANCHORS else f'<span id="sec2{n}"></span>'
+    return anchor + qa(f"Q{n}", title, prio, ANS[n], status="Terjawab" if n not in WARN else "Dengan catatan", warn=n in WARN)
 
 
 def block(title, qs):
