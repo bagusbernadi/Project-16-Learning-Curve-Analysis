@@ -2,6 +2,8 @@
 
 # Project 16: Learning Curve Analysis
 
+**Halaman web:** https://bagusbernadi.github.io/Project-16-Learning-Curve-Analysis/
+
 | | |
 |---|---|
 | Kategori | Manufaktur PLC Splitter, learning curve |
