@@ -11,7 +11,7 @@
 | Data | **Simulasi** (tidak ada data kerja; lihat `project/docs/simulation_spec.md`) |
 | Tools | Python (pandas, NumPy, SciPy), DuckDB + SQL, Excel (cek silang), Streamlit + Plotly, Matplotlib |
 
-Status: **Selesai di branch `project-16-build`** (belum di-merge ke `main`). Dashboard belum di-deploy.
+Status: **Selesai dan digabung ke `main`**. Dashboard belum di-deploy.
 
 Pertanyaan utama: seberapa cepat operator baru mencapai target output harian dibanding standar 30 hari, dan apa yang
 membedakan operator yang cepat dan lambat?
